@@ -50,7 +50,7 @@ class DataTransformation:
             categorical_pipeline= Pipeline(
                 steps= [
                     ('imputer', SimpleImputer(strategy= 'most_frequent')), #handles missing categorical values with most frequent
-                    ('one_hot_encoder', OneHotEncoder()), #convert categorical variables into a numerical format
+                    ('one_hot_encoder', OneHotEncoder(handle_unknown= "ignore")), #convert categorical variables into a numerical format
                     ('scaler', StandardScaler(with_mean=False)) #scale the one-hot encoded features
                 ]
             )
